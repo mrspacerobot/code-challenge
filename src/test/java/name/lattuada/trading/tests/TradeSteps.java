@@ -38,8 +38,19 @@ public class TradeSteps {
     }
 
     // TODO implement: Given for "one security {string} and two users {string} and {string} exist"
+    @Given("one security {string} and two users {string} and {string} exist")
     public void oneSecurityAndTwoUsers(String securityName, String userName1, String userName2) {
+        createUser(userName1);
+        createUser(userName2);
+        createSecurity(securityName);
+    }
 
+    @Given("one security {string} and three users {string} and {string} and {string} exist")
+    public void oneSecurityAndThreeUsers(String securityName, String userName1, String userName2, String userName3) {
+        createUser(userName1);
+        createUser(userName2);
+        createUser(userName3);
+        createSecurity(securityName);
     }
 
     @When("user {string} puts a {string} order for security {string} with a price of {double} and quantity of {long}")
@@ -101,9 +112,24 @@ public class TradeSteps {
                              EOrderType orderType,
                              String securityName,
                              Double price,
-                             Long quantity) {
-        // TODO: implement create oder function
-        logger.info("To be implemented! ... Order created: {}");
+                             Long quantity){
+        OrderDTO orderDTO = new OrderDTO();
+        orderDTO.setType(orderType);
+        orderDTO.setSecurityId(securityMap.get(securityName).getId());
+        orderDTO.setPrice(price);
+        orderDTO.setQuantity(quantity);
+        orderDTO.setUserId(userMap.get(userName).getId());
+        OrderDTO orderReturned = restUtility.post("api/orders",
+                orderDTO,
+                OrderDTO.class);
+        if(orderReturned.getType() == EOrderType.BUY){
+            buyOrder = orderReturned;
+        }
+        if(orderReturned.getType() == EOrderType.SELL){
+            sellOrder = orderReturned;
+        }
+
+        logger.info("Order created: {}", orderReturned);
     }
 
 }
