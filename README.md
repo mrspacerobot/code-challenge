@@ -5,7 +5,7 @@ This is a simple trading application.
 Being a first draft, it uses an in-memory H2 database. Neither the schema, nor the data are explicitly created.
 
 ## Test Report
-![image](https://github.com/mrspacerobot/code-challenge/blob/2684deb7f8698f2649e6afdb680b2697a6344924/Web%20capture_9-1-2023_171012_reports.cucumber.io.jpeg)
+https://reports.cucumber.io/report-collections/c5f8c370-7701-4f2c-bcee-37ca4ac6faad
 
 ## Required tools and libraries
 
