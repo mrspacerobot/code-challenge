@@ -44,13 +44,6 @@ Feature: 00 Smoke Tests
     And user "User3" puts a "buy" order for security "SEC" with a price of 100 and quantity of 50
     Then a trade occurs with the price of 80 and quantity of 50
 
-  Scenario: Trade occurs Sell Sell Buy Minimum price
-    Given one security "SEC" and three users "User1" and "User2" and "User3" exist
-    When user "User2" puts a "sell" order for security "SEC" with a price of 100 and a quantity of 100
-    And user "User1" puts a "sell" order for security "SEC" with a price of 80 and quantity of 50
-    And user "User3" puts a "buy" order for security "SEC" with a price of 100 and quantity of 50
-    Then a trade occurs with the price of 80 and quantity of 50
-
   Scenario: Trade occurs Buy Sell Buy Minimum price
     Given one security "SEC" and three users "User1" and "User2" and "User3" exist
     When user "User2" puts a "buy" order for security "SEC" with a price of 100 and a quantity of 100
