@@ -4,6 +4,9 @@ This is a simple trading application.
 
 Being a first draft, it uses an in-memory H2 database. Neither the schema, nor the data are explicitly created.
 
+## Test Report
+![image](https://github.com/mrspacerobot/code-challenge/blob/96fbef0aafd2b2c92ba5d8ad056ab279ba7eef40/Web%20capture_9-1-2023_144522_reports.cucumber.io.jpeg)
+
 ## Required tools and libraries
 
 1. [JDK 17](https://www.oracle.com/java/technologies/downloads/#JDK17)
